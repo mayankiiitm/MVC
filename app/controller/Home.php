@@ -4,7 +4,6 @@
 */
 class Home
 {
-
 	function home1(){	
 		 $data3['title']='test';
 		 $data3['h1']='testing';
