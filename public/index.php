@@ -1,13 +1,9 @@
 <?php
 require_once '../app/init.php';
 $route=new Route;
-$route->get('/','Home@index');
-$route->get('/url1','Home@index');
-$route->get('/url2','Home@index1');
-$route->get('/userlogin','Login@login1');
-$route->get('/userlogin/:id','Login@dynamic');
-$route->get('/userlogin/:id/:id1','Login@dynamic1');
+$ru= $_SERVER['REQUEST_URI'];
+//$route->('/home','home@home');
+$route->get('/user/:a/:b','home@home2');
+$route->get('/user','home@home1');
 $route->run();
-
-
 ?>
