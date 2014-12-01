@@ -78,7 +78,7 @@ class Route
 				throw new Exception("The controller not found", 1);				
 			}
 		}else{
-			//route not found;
+			require_once '../app/controller/error.php';
 		}
 		
 	}
