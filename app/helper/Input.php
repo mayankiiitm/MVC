@@ -22,7 +22,7 @@ class Input
 			}
 			return $post;
 		}
-		return self::clean($_POST[$key]);
+		return isset($_POST[$key])?self::clean($_POST[$key]):null;
 	}
 
 	private static function clean($var=''){

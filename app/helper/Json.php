@@ -50,7 +50,11 @@ class Json
 	function response($data,$status='200'){
 		header('HTTP/1.1 '.$status.' '.self::$status[$status]);
 		header('Content-Type: Application/Json');
-		echo json_encode($data);
+		echo json_encode($data,JSON_PRETTY_PRINT);
+	}
+
+	function view($json){
+		Helper::pre(json_decode($json, true));
 	}
 }
 ?>

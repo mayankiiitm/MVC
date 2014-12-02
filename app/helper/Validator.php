@@ -4,7 +4,7 @@
 */
 class Validator
 {
-	public static $error=array();
+	protected static $error=array();
 	public static function validate(Array $input, Array $rules){
 		self::$error=false;
 		foreach ($rules as $key => $value) {
@@ -22,7 +22,9 @@ class Validator
 		}
 		return !self::$error;
 	}
-	
+	public static function error(){
+		return self::$error;
+	}
 	private static function required($value,$key){
 		if (empty($value) || !isset($value) || $value=='') {
 			self::setError($key, $key.' is required');
