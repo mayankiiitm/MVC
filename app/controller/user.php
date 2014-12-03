@@ -34,7 +34,7 @@ class User
  ) AS d
 
  ORDER BY distance");
-		Helper::pre($zip);
+		Json::response($zip);
 	}
 
 	private function is_loggedin(){

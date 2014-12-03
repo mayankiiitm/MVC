@@ -49,8 +49,9 @@ class Json
 		);
 	function response($data,$status='200'){
 		header('HTTP/1.1 '.$status.' '.self::$status[$status]);
-		header('Content-Type: Application/Json');
-		echo json_encode($data,JSON_PRETTY_PRINT);
+		header('Content-Type: Application/Json; Charset=UTF-8');
+		header('X-Powered-By: Mayank Kumar');
+		echo json_encode($data);
 	}
 
 	function view($json){
