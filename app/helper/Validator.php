@@ -67,6 +67,16 @@ class Validator
 		self::setError($key, $key.' should not be more than '.$param.' charecter long');
 		return false;
 	}
+	private static function unique($value,$param,$key){
+		$db=DB::getInstance();
+		$sth=$db->prepare("SELECT * FROM $param WHERE $key=:value");
+		$sth->execute(array('value'=>$value));
+		if (!$sth->rowCount()) {
+			return true;
+		}
+		self::setError($key, $key.' should be unique');
+		return false;
+	}
 
 	private static function setError($key,$value){
 		self::$error[$key]=$value;
